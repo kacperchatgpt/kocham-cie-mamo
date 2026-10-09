@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kocham Cię, Mamo! ❤️</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffb6d9, #ff69b4, #ffc0cb);
+}
+
+.napis {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  animation: puls 2s infinite;
+}
+
+h1 {
+  color: white;
+  font-size: clamp(38px, 9vw, 90px);
+  text-shadow: 3px 4px 12px #d63384;
+}
+
+p {
+  color: white;
+  font-size: clamp(20px, 4vw, 30px);
+}
+
+.serce {
+  position: absolute;
+  bottom: -60px;
+  animation: unoszenie linear infinite;
+  pointer-events: none;
+}
+
+@keyframes unoszenie {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  15% { opacity: .85; }
+  100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes puls {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+</style>
+</head>
+<body>
+<div class="napis">
+  <h1>Kocham Cię, Mamo! ❤️</h1>
+  <p>Jesteś najlepszą mamą na świecie! 💗</p>
+</div>
+
+<script>
+for (let i = 0; i < 45; i++) {
+  const serce = document.createElement("div");
+  serce.className = "serce";
+  serce.textContent = Math.random() > 0.5 ? "❤️" : "💕";
+  serce.style.left = Math.random() * 100 + "vw";
+  serce.style.fontSize = (20 + Math.random() * 35) + "px";
+  serce.style.animationDuration = (5 + Math.random() * 10) + "s";
+  serce.style.animationDelay = (Math.random() * 10) + "s";
+  document.body.appendChild(serce);
+}
+</script>
+</body>
+</html>
